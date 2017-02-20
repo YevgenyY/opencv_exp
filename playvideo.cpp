@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
 		}
 		cv::imshow( "Example 2", frame);
 
-		if( cv::waitKey(30) >= 0 ) {
+		if( cv::waitKey(100) >= 0 ) {
 			printf("break pressed\n");
 			break;
 		}
