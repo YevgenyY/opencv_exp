@@ -8,8 +8,8 @@ int main(int, char**)
     if(!cap.isOpened())  // check if we succeeded
         return -1;
 
-    int frame_width=   cap.get(CV_CAP_PROP_FRAME_WIDTH);
-    int frame_height=   cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+    int frame_width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
+    int frame_height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
     VideoWriter video("out.avi",CV_FOURCC('M','J','P','G'),10, Size(frame_width,frame_height),true);
 
     Mat edges;
