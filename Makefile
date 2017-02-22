@@ -1,4 +1,4 @@
-all: capture playvideo tracker pyrdown
+all: capture playvideo tracker pyrdown canny
 	        
 tracker: tracker.cpp
 	g++ tracker.cpp -o tracker -I /usr/local -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_tracking -lopencv_videoio -lopencv_core
@@ -13,3 +13,7 @@ playvideo: playvideo.cpp
 
 pyrdown: pyrdown.cpp
 	g++ -g -O0 pyrdown.cpp -o pyrdown -I /usr/local -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_core
+
+canny: canny.cpp
+	g++ -g -O0 canny.cpp -o canny -I /usr/local -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_core
+
