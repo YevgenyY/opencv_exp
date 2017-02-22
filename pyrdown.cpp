@@ -10,8 +10,8 @@ int main(int argc, char **argv) {
 	cv::imshow( "Example 1", img1 );
 	
 	cv::pyrDown( img1, img2 );
-	cv::Canny( img2, img_cny, 10, 100, 3, true );
-	cv::imshow( "Example 2", img_cny );
+	//cv::Canny( img2, img_cny, 10, 100, 3, true );
+	cv::imshow( "Example 2", img2 );
 
 	cv::waitKey( 0 );
 
