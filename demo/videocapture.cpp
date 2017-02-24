@@ -5,8 +5,10 @@ using namespace cv;
 int main(int, char**)
 {
     VideoCapture cap(0); // open the default camera
-    if(!cap.isOpened())  // check if we succeeded
+    if(!cap.isOpened()) { // check if we succeeded
+	printf("No camera found!\n");
         return -1;
+    }
 
     int frame_width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
     int frame_height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);

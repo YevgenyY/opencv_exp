@@ -49,6 +49,8 @@ int main( int argc, char** argv ){
     imshow("tracker",frame);
     //quit on ESC button
     if(waitKey(1)==27)break;
+
+    printf("tracking...\n");
   }
   return 0;
 }
