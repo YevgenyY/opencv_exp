@@ -22,9 +22,9 @@ int main( int argc, char** argv ) {
 		alpha = input;
 	}
 
-	// images must be the same size
-	src1 = imread("wallhaven-386671.jpg");
-	src2 = imread("ubuntu.jpg");
+	// images must have the same size
+	src1 = imread("horizon_1600x800.jpg");
+	src2 = imread("crypto_1600x800.png");
 
 	if( !src1.data || !src2.data)
    	{
@@ -34,6 +34,8 @@ int main( int argc, char** argv ) {
 
 	namedWindow("Linear blend", 1);
 
+	// the formula is
+	// dst=α⋅src1+β⋅src2+γ
 	beta = ( 1.0 - alpha );
 	addWeighted( src1, alpha, src2, beta, 0.0, dst);
 
