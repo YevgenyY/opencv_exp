@@ -47,3 +47,7 @@ int main(int argc, char** argv)
 	waitKey();
 	return 0;
 }
+
+/* Next exercise devoted histogram calculation 
+ * http://docs.opencv.org/master/d8/dbc/tutorial_histogram_calculation.html
+ * */
