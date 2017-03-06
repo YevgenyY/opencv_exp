@@ -1,4 +1,4 @@
-all: bex01 bex02 bex03 bex04 bex05 bex06 bex07 bex08 bex09
+all: bex01 bex02 bex03 bex04 bex05 bex06 bex07 bex08 bex09 bex10
 
 CFLAGS = -g -O0 -I /usr/local 
 LDFLAGS = -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_tracking -lopencv_videoio -lopencv_core -lopencv_imgcodecs
@@ -21,5 +21,7 @@ bex08: ex08_affine_transform.cpp
 	g++ ex08_affine_transform.cpp -o bex08 ${CFLAGS} ${LDFLAGS} 
 bex09: ex09_hist.cpp
 	g++ ex09_hist.cpp -o bex09 ${CFLAGS} ${LDFLAGS} 
+bex10: ex10_find_contours.cpp
+	g++ ex10_find_contours.cpp -o bex10 ${CFLAGS} ${LDFLAGS} 
 
 
