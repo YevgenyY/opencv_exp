@@ -13,4 +13,6 @@ tracker
 exercises/b*
 exercises/*.jpg
 exercises/*.png
+exercises/image_processing/b*
+exercises/core_functionality/b*
 
