@@ -28,6 +28,7 @@ void Sharpen(const Mat& myImage, Mat& Result)
 	Result.row(Result.rows - 1).setTo(Scalar(0));
 	Result.col(0).setTo(Scalar(0));
 	Result.col(Result.cols - 1).setTo(Scalar(0));
+
 }
 
 int main( int argc, char** argv ) {
