@@ -1,5 +1,4 @@
 ./.*~
-*.jpg
 */*.jpg
 */capture
 */playvideo
@@ -18,4 +17,8 @@ exercises/core_functionality/b*
 exercises/video_processing/b*
 exercises/video_processing/*.avi
 exercises/video_processing/playvideo
+exercises/video_processing/*.gif
+exercises/video_processing/*.webm
+exercises/carnum_recognition/b*
+
 
