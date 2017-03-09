@@ -62,6 +62,11 @@ void detectAndDisplay( Mat frame )
 		rectangle( frame, pt1, pt2, Scalar(255, 0, 255), 3, 8, 0 );
 		Mat plateROI = frame_gray( plates[i] );
 		std::vector<Rect> eyes;
+
+		Mat P ( frame, Rect(plates[i].x, plates[i].y, plates[i].width, plates[i].height) );
+		imshow( "plate", P );
+
+		cout << "point[i]: " << plates[i] << endl;
 		//-- In each plate, detect eyes
 #if 0
 		eyes_cascade.detectMultiScale( plateROI, eyes, 1.1, 2, 0 |CASCADE_SCALE_IMAGE, Size(30, 30) );
