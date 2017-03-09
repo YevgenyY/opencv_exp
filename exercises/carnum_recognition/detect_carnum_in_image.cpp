@@ -2,14 +2,22 @@
 #include "opencv2/videoio.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
+
+#include <tesseract/baseapi.h>
+#include <leptonica/allheaders.h>
+
 #include <iostream>
 #include <stdio.h>
 using namespace std;
 using namespace cv;
+using namespace tesseract;
+
 void detectAndDisplay( Mat frame );
 String plate_cascade_name;
 CascadeClassifier plate_cascade;
 String window_name = "Capture - Car plate detection";
+TessBaseAPI tess;
+
 int main( int argc, const char** argv )
 {
 	CommandLineParser parser(argc, argv,
@@ -22,6 +30,16 @@ int main( int argc, const char** argv )
 	//plate_cascade_name = parser.get<string>("plate_cascade");
 	plate_cascade_name = "/usr/local/share/OpenCV/haarcascades/haarcascade_russian_plate_number.xml";
 	Mat frame;
+
+	//-- 0. Init tesseract OCR
+	//tess.SetVariable( TessBaseAPI.VAR_CHAR_WHITELIST, "0123456789ABCDHETYOPKXCBM" );
+	tess.SetVariable("tessedit_char_whitelist","0123456789");
+	if (tess.Init("/usr/share/doc/tesseract-ocr-eng", "eng"))
+	{
+		fprintf(stderr, "Could not initialize tesseract.\n");
+		exit(1);
+	}
+
 	//-- 1. Load the cascades
 	if( !plate_cascade.load( plate_cascade_name ) )
 	{
@@ -45,6 +63,18 @@ int main( int argc, const char** argv )
 	return 0;
 }
 
+char *recognizeCarnum(Mat &P)
+{
+	tess.SetImage(P.data, P.size().width, P.size().height, P.channels(), P.step1());
+	tess.Recognize(0);
+	char* out = tess.GetUTF8Text();
+
+	imshow( "Plate #", P );
+	//imwrite( "out.jpg", P );
+
+	return out;
+}
+
 void detectAndDisplay( Mat frame )
 {
 	std::vector<Rect> plates;
@@ -64,7 +94,7 @@ void detectAndDisplay( Mat frame )
 		std::vector<Rect> eyes;
 
 		Mat P ( frame, Rect(plates[i].x, plates[i].y, plates[i].width, plates[i].height) );
-		imshow( "plate", P );
+		cout << "Recognized char: " << recognizeCarnum( P ) << endl;
 
 		cout << "point[i]: " << plates[i] << endl;
 		//-- In each plate, detect eyes
@@ -79,6 +109,6 @@ void detectAndDisplay( Mat frame )
 #endif
 	}
 	//-- Show what you got
-	imshow( window_name, frame );
+	//imshow( window_name, frame );
 	cv::waitKey(0);
 }
