@@ -20,6 +20,7 @@ TessBaseAPI tess;
 
 int main( int argc, const char** argv )
 {
+#if 0
 	CommandLineParser parser(argc, argv,
 	                         "{help h||}"
 	                         "{plate_cascade|../../data/haarcascades/haarcascade_frontalplate_alt.xml|}"
@@ -27,14 +28,15 @@ int main( int argc, const char** argv )
 	cout << "\nThis program demonstrates using the cv::CascadeClassifier class to detect objects (Face + eyes) in a video stream.\n"
 	     "You can use Haar or LBP features.\n\n";
 	parser.printMessage();
-	//plate_cascade_name = parser.get<string>("plate_cascade");
+	plate_cascade_name = parser.get<string>("plate_cascade");
+#endif
 	plate_cascade_name = "/usr/local/share/OpenCV/haarcascades/haarcascade_russian_plate_number.xml";
 	Mat frame;
 
 	//-- 0. Init tesseract OCR
 	//tess.SetVariable( TessBaseAPI.VAR_CHAR_WHITELIST, "0123456789ABCDHETYOPKXCBM" );
-	tess.SetVariable("tessedit_char_whitelist","0123456789");
-	if (tess.Init("/usr/share/tesseract-ocr/tessdata", "eng"))
+	tess.SetVariable("tessedit_char_whitelist","0123456789ABCDETOPHKXCBNM");
+	if (tess.Init(NULL, "eng"))
 	{
 		fprintf(stderr, "Could not initialize tesseract.\n");
 		exit(1);

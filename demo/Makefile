@@ -1,4 +1,4 @@
-all: capture playvideo tracker pyrdown canny lkdemo
+all: capture playvideo tracker pyrdown canny lkdemo webcam
 	        
 tracker: tracker.cpp
 	g++ tracker.cpp -o tracker -I /usr/local -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_tracking -lopencv_videoio -lopencv_core
@@ -19,4 +19,7 @@ canny: canny.cpp
 
 lkdemo: lkdemo.cpp
 	g++ -g -O0 lkdemo.cpp -o lkdemo -I /usr/local -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_core -lopencv_video
+
+webcam: webcam_demo.cpp
+	g++ -g -O0 webcam_demo.cpp -o webcam_demo -I /usr/local -lopencv_objdetect -lopencv_features2d -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_core -lopencv_video -lopencv_imgproc -lopencv_features2d -lopencv_tracking -lopencv_videoio -lopencv_core -lopencv_imgcodecs -lopencv_text
 
