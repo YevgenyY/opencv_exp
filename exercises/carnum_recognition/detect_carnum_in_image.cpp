@@ -34,7 +34,7 @@ int main( int argc, const char** argv )
 	//-- 0. Init tesseract OCR
 	//tess.SetVariable( TessBaseAPI.VAR_CHAR_WHITELIST, "0123456789ABCDHETYOPKXCBM" );
 	tess.SetVariable("tessedit_char_whitelist","0123456789");
-	if (tess.Init("/usr/share/doc/tesseract-ocr-eng", "eng"))
+	if (tess.Init("/usr/share/tesseract-ocr/tessdata", "eng"))
 	{
 		fprintf(stderr, "Could not initialize tesseract.\n");
 		exit(1);
@@ -70,7 +70,7 @@ char *recognizeCarnum(Mat &P)
 	char* out = tess.GetUTF8Text();
 
 	imshow( "Plate #", P );
-	//imwrite( "out.jpg", P );
+	imwrite( "out.jpg", P );
 
 	return out;
 }

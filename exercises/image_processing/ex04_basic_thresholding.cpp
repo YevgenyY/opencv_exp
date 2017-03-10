@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 using namespace cv;
-int threshold_value = 0;
+int threshold_value = 200;
 int threshold_type = 3;
 int const max_value = 255;
 int const max_type = 4;
@@ -46,4 +46,5 @@ void Threshold_Demo( int, void* )
 	 */
 	threshold( src_gray, dst, threshold_value, max_BINARY_value,threshold_type );
 	imshow( window_name, dst );
+	imwrite("out.jpg", dst);
 }

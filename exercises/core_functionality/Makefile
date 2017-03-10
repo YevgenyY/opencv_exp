@@ -18,4 +18,6 @@ bex06: ex06_basic_drawing.cpp
 
 bex07: ex07_dft.cpp
 	g++ ex07_dft.cpp -o bex07 ${CFLAGS} ${LDFLAGS} 
+clean:
+	rm ./b*
 

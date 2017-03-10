@@ -43,4 +43,5 @@ void thresh_callback(int, void* )
 	}
 	namedWindow( "Contours", WINDOW_AUTOSIZE );
 	imshow( "Contours", drawing );
+	imwrite( "out.jpg", drawing );
 }
