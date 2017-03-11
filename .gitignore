@@ -21,5 +21,6 @@ exercises/video_processing/playvideo
 exercises/video_processing/*.gif
 exercises/video_processing/*.webm
 exercises/carnum_recognition/b*
+exercises/carnum_recognition/*.jpg
 
 

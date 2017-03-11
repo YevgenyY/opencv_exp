@@ -99,6 +99,7 @@ void detectAndDisplay( Mat frame )
 		cout << "Recognized char: " << recognizeCarnum( P ) << endl;
 
 		cout << "point[i]: " << plates[i] << endl;
+		cv::waitKey(0);
 		//-- In each plate, detect eyes
 #if 0
 		eyes_cascade.detectMultiScale( plateROI, eyes, 1.1, 2, 0 |CASCADE_SCALE_IMAGE, Size(30, 30) );
