@@ -7,4 +7,7 @@ Here I try and test different algorythms of great library [OpenCV](https://githu
 - Installing [Intel TBB library](https://www.theimpossiblecode.com/blog/intel-tbb-on-raspberry-pi/)
 - Installing [OpenCV 3 itself](http://docs.opencv.org/3.1.0/d7/d9f/tutorial_linux_install.html)
 
+## Very useful tool for creating samples for haar cascade training
 
+Here is the [link](https://github.com/JoakimSoderberg/imageclipper.git) to imageclipper. 
+You need CMake, OpenCV and Boost to build it.
